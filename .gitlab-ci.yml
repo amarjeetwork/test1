@@ -1,0 +1,10 @@
+stages:
+  - mirror
+
+mirror_repository_to_github:
+  stage: mirror
+  only:
+    - master  # or whichever branch(es) you want to mirror
+  script:
+    - git remote add github https://github.com/amarjeetwork/test1.git
+    - git push --mirror github
