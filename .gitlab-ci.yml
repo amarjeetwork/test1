@@ -1,10 +1,16 @@
 stages:
   - mirror
-
 mirror_repository_to_github:
   stage: mirror
   only:
     - master  # or whichever branch(es) you want to mirror
   script:
-    - git remote add github https://github.com/amarjeetwork/test1.git
+    - git config --global user.email "amarjeetcdacb@gmail.com" 
+    - git config --global user.name "Amarjeet Kumar"  
+    - >
+      git remote add github https://amarjeetwork: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@github.com/amarjeetwork/test1.git
     - git push --mirror github
+  environment:
+    name: mirror
+  when: manual
+  allow_failure: false
